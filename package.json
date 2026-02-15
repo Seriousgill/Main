@@ -1,0 +1,11 @@
+{
+  "name": "mlm-web-app",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm i && cd ../frontend && npm i",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
