@@ -1,0 +1,18 @@
+:root {
+  --dark-blue: #0f1c2e;
+  --steel-grey: #2e3b4e;
+  --yellow: #f4b400;
+}
+body {background: var(--dark-blue); color:#eaf0f8; font-family: 'Segoe UI', sans-serif;}
+.main-header, .footer {background: #101a2a; border-bottom:1px solid #223349;}
+.footer {border-top:1px solid #223349; border-bottom:none;}
+.hero {padding:100px 0; background: linear-gradient(130deg,#132842,#0f1c2e);}
+.section-card {background:#16263a; border:1px solid #30445f; border-radius:14px; padding:24px; height:100%; transition:transform .25s;}
+.section-card:hover {transform: translateY(-4px);}
+.btn-warning {color:#131313; font-weight:600;}
+h1,h2,h3,h4,h5 {color:#fff;}
+.text-accent {color:var(--yellow);}
+.form-control, .form-select, textarea {background:#1a2b42; color:#fff; border-color:#2f4666;}
+.form-control:focus, .form-select:focus {background:#1a2b42;color:#fff;border-color:var(--yellow);box-shadow:0 0 0 .2rem rgba(244,180,0,.2)}
+.table {color:#dbe7f5;}
+.admin-layout {min-height:100vh; background:#0c1828;}
