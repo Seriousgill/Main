@@ -1,0 +1,8 @@
+{
+  "name": "acme/visitor-management-system",
+  "description": "QR-based Visitor Management System structure built with Laravel 10 style conventions.",
+  "type": "project",
+  "require": {
+    "php": "^8.1"
+  }
+}
