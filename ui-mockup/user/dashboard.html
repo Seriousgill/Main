@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>User Dashboard</title><link rel='stylesheet' href='../assets/styles.css'><script src='../assets/app.js'></script></head><body>
+<div class='app'><aside class='sidebar'><h3>MLM User</h3><nav class='menu'><a class='active' href='dashboard.html'>Dashboard</a><a href='buy-plan.html'>Buy Plan</a><a href='daily-task.html'>Daily Task</a><a href='referrals.html'>Referrals</a><a href='lucky-wheel.html'>Lucky Wheel</a><a href='wallet.html'>Wallet</a><a href='withdraw.html'>Withdraw</a><a href='transactions.html'>Transactions</a><a href='profile.html'>Profile</a><a href='support.html'>Support</a><a href='../index.html'>Logout</a></nav></aside>
+<main class='main'><div class='topbar'><div style='display:flex;gap:8px'><button class='btn' onclick='toggleSidebar()'>☰</button><input class='search' placeholder='Search...'></div><div style='display:flex;gap:10px;align-items:center'><span>🔔</span><span class='badge badge-success'>₹ 8,420</span><span>👤</span></div></div>
+<section class='hero glass' style='margin-top:12px'><h2>Welcome back, Rahul</h2><p>Active plan: Gold • Daily Income ₹120 • Expires in 52 days</p></section>
+<section class='stats' style='margin-top:12px'>
+<div class='card stat'><small>Total Earnings</small><h3>₹52,400</h3></div>
+<div class='card stat income'><small>Today's Income</small><h3>₹120</h3></div>
+<div class='card stat ref'><small>Referral Income</small><h3>₹9,330</h3></div>
+<div class='card stat income'><small>Lucky Income</small><h3>₹1,450</h3></div>
+<div class='card stat warn'><small>Available Balance</small><h3>₹8,420</h3></div>
+</section>
+<section style='display:flex;gap:10px;flex-wrap:wrap;margin:14px 0'><a class='btn btn-primary' href='daily-task.html'>Complete Task</a><a class='btn btn-success' href='referrals.html'>Refer & Earn</a><a class='btn btn-gradient' href='lucky-wheel.html'>Spin Lucky Wheel</a><a class='btn btn-danger' href='withdraw.html'>Withdraw</a></section>
+<div class='grid grid-3'><div class='card' style='grid-column:span 2'><h3>Earnings Trend</h3><div class='chart'><div class='bar' style='height:40%'></div><div class='bar' style='height:55%'></div><div class='bar' style='height:65%'></div><div class='bar' style='height:50%'></div><div class='bar' style='height:78%'></div><div class='bar' style='height:88%'></div><div class='bar' style='height:70%'></div></div></div>
+<div class='card'><h3>Active Plan</h3><p>Gold Plan</p><p class='muted'>₹120/day</p><div class='progress'><span style='width:58%'></span></div><small class='muted'>52 of 90 days left</small></div></div>
+<div class='card' style='margin-top:12px'><h3>Referral Table</h3><div class='table-wrap'><table class='table'><tr><th>Name</th><th>Plan</th><th>Earnings</th><th>Status</th></tr><tr><td>Akash</td><td>Silver</td><td>₹410</td><td><span class='badge badge-success'>Active</span></td></tr><tr><td>Priya</td><td>Gold</td><td>₹980</td><td><span class='badge badge-warning'>Pending</span></td></tr></table></div></div>
+</main></div></body></html>
