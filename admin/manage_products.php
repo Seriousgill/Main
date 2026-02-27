@@ -1,6 +1,7 @@
 <?php
 include '../includes/db.php';
 include 'includes/header.php';
+include 'includes/csrf.php';
 
 if (isset($_POST['add_product'])) {
     $title = trim($_POST['title']);
@@ -21,9 +22,11 @@ if (isset($_POST['add_product'])) {
     $stmt->execute();
 }
 
-if (isset($_GET['delete'])) {
-    $id = (int) $_GET['delete'];
-    $conn->query("DELETE FROM products WHERE id = $id");
+if (isset($_POST['delete_product']) && csrf_is_valid($_POST['csrf_token'] ?? null)) {
+    $id = (int) $_POST['delete_product'];
+    $stmt = $conn->prepare('DELETE FROM products WHERE id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
 }
 
 $categories = $conn->query('SELECT id, name FROM categories ORDER BY name ASC');
@@ -58,7 +61,13 @@ $products = $conn->query('SELECT p.*, c.name AS category_name FROM products p LE
                 <td><?php echo htmlspecialchars($row['title']); ?></td>
                 <td><?php echo htmlspecialchars($row['category_name'] ?? 'N/A'); ?></td>
                 <td><?php echo $row['status'] ? 'Active' : 'Inactive'; ?></td>
-                <td><a class="btn btn-sm btn-danger" href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Delete product?')">Delete</a></td>
+                <td>
+                    <form method="post" class="d-inline" onsubmit="return confirm('Delete product?')">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
+                        <input type="hidden" name="delete_product" value="<?php echo $row['id']; ?>">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         <?php } ?>
     </table>
