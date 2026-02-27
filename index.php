@@ -25,9 +25,11 @@
         } else {
             ?>
             <div class="carousel-item active">
-                <img src="https://placehold.co/1400x500?text=Shri+Balaji+Foundry" class="d-block w-100 slider-img" alt="Default slide">
+                <img src="https://placehold.co/1400x520?text=Shri+Balaji+Foundry" class="d-block w-100 slider-img" alt="Default slide">
                 <div class="carousel-caption bg-dark bg-opacity-50 rounded p-3">
-                    <h2>Engineering Strength, Built to Last</h2>
+                    <h2>Since 1968 - Trusted Engineering for Agriculture & Industry</h2>
+                    <p>Chaff Cutters | Workshop Machinery | Casting | Fabrication</p>
+                    <a href="contact.php" class="btn btn-primary">Request a Quote</a>
                 </div>
             </div>
         <?php } ?>
@@ -35,7 +37,49 @@
 </div>
 
 <section class="container py-5">
-    <h2 class="text-center section-title">Our Products</h2>
+    <h2 class="text-center section-title">Our Product Categories</h2>
+    <div class="row g-4">
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5>Chaff Cutters</h5>
+                    <p class="small text-muted">Sarpanch Taj, Wheel-2, Bomb, Steel Gear, Heavy Duty, MLP and hand-operated models.</p>
+                    <a href="products.php" class="btn btn-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5>Workshop Machinery</h5>
+                    <p class="small text-muted">Lathe, Drilling, Shaper, Plano Miller and Boring machines for industrial use.</p>
+                    <a href="workshop-machinery.php" class="btn btn-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5>Casting</h5>
+                    <p class="small text-muted">CI/steel casting solutions for machine bodies, housings, frames, and OEM requirements.</p>
+                    <a href="casting.php" class="btn btn-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5>Fabricated Components</h5>
+                    <p class="small text-muted">Custom fabrication with cutting, bending, welding, and assembly as per drawings.</p>
+                    <a href="fabrication.php" class="btn btn-primary btn-sm">Explore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container pb-5">
+    <h2 class="text-center section-title">Popular Chaff Cutter Models</h2>
     <div class="row g-4">
         <?php
         $productResult = $conn->query('SELECT * FROM products WHERE status = 1 ORDER BY id DESC LIMIT 6');
@@ -53,7 +97,9 @@
                 </div>
             <?php }
         } else { ?>
-            <p class="text-center">Products will appear here after adding from the admin panel.</p>
+            <div class="col-12">
+                <div class="alert alert-info">Add products from admin to display model-wise cards here.</div>
+            </div>
         <?php } ?>
     </div>
 </section>
