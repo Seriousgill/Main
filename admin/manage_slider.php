@@ -1,6 +1,7 @@
 <?php
 include '../includes/db.php';
 include 'includes/header.php';
+include 'includes/csrf.php';
 
 if (isset($_POST['add_slider'])) {
     $title = trim($_POST['title']);
@@ -18,9 +19,11 @@ if (isset($_POST['add_slider'])) {
     $stmt->execute();
 }
 
-if (isset($_GET['delete'])) {
-    $id = (int) $_GET['delete'];
-    $conn->query("DELETE FROM slider WHERE id = $id");
+if (isset($_POST['delete_slider']) && csrf_is_valid($_POST['csrf_token'] ?? null)) {
+    $id = (int) $_POST['delete_slider'];
+    $stmt = $conn->prepare('DELETE FROM slider WHERE id = ?');
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
 }
 
 $items = $conn->query('SELECT * FROM slider ORDER BY id DESC');
@@ -44,7 +47,13 @@ $items = $conn->query('SELECT * FROM slider ORDER BY id DESC');
                 <td><?php echo $row['id']; ?></td>
                 <td><?php echo htmlspecialchars($row['title']); ?></td>
                 <td><?php echo htmlspecialchars($row['button_text']); ?></td>
-                <td><a class="btn btn-sm btn-danger" href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Delete slide?')">Delete</a></td>
+                <td>
+                    <form method="post" class="d-inline" onsubmit="return confirm('Delete slide?')">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
+                        <input type="hidden" name="delete_slider" value="<?php echo $row['id']; ?>">
+                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         <?php } ?>
     </table>
