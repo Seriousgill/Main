@@ -1,0 +1,43 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #F5F7FA;
+}
+
+.navbar,
+.footer {
+    background: #0A1F44;
+}
+
+.btn-primary {
+    background: #F57C00;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #d66f00;
+}
+
+.section-title {
+    color: #0A1F44;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.slider-img {
+    height: 520px;
+    object-fit: cover;
+}
+
+.product-thumb {
+    height: 220px;
+    object-fit: cover;
+}
+
+.info-chip {
+    background: #ffffff;
+    border-left: 4px solid #F57C00;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
