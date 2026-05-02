@@ -1,0 +1,1 @@
+<%- include('nav') %><main class='container'><h1>Categories</h1><form method='post'><input name='name' required><button class='btn'>Add</button></form><% categories.forEach(c=>{ %><div><%= c.name %><form method='post' action='/admin/categories/<%= c.id %>/delete'><button>Delete</button></form></div><% }) %></main></body></html>

@@ -1,0 +1,7 @@
+<%- include('partials/header') %>
+<section class='hero'><div class='overlay'><h1>Authentic Punjabi Taste in Artesia</h1><div><a class='btn' href='/menu'>View Menu</a><a class='btn ghost' href='tel:<%= contact.phone||"" %>'>Call Now</a></div></div></section>
+<section class='container'><h2>About</h2><p>Serving heritage Punjabi flavors with premium dining comfort.</p></section>
+<section class='container grid-4'><% categories.slice(0,4).forEach(c=>{ %><article class='card'><h3><%= c.name %></h3></article><% }) %></section>
+<section class='container'><h2>Featured</h2><div class='grid-4'><% featured.forEach(i=>{ %><article class='card'><img loading='lazy' src='<%= i.image || "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600" %>'><h3><%= i.name %></h3><p>$<%= i.price %></p></article><% }) %></div></section>
+<section class='container'><h2>Gallery Preview</h2><div class='grid-4'><% gallery.forEach(g=>{ %><img loading='lazy' src='<%= g.image %>'><% }) %></div></section>
+<%- include('partials/footer') %>
