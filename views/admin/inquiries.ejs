@@ -1,0 +1,1 @@
+<%- include('nav') %><main class='container'><h1>Form Submissions</h1><table><tr><th>Name</th><th>Phone</th><th>Type</th><th>Message</th></tr><% rows.forEach(r=>{ %><tr><td><%= r.name %></td><td><%= r.phone %></td><td><%= r.type %></td><td><%= r.message %></td></tr><% }) %></table></main></body></html>
